@@ -2,8 +2,19 @@ package Ascensores;
 
 public class displayAscensor implements Observer {
 
-    String nameEstado; 
-    int pisoSal; 
+    int pisoSal;
+    int numeroAscensor;
+    
+    public displayAscensor(Ascensor s) {
+    	update (s.getPisoAscensor());
+    	updateid(s.getIdAscensor());
+    	
+    }
+    
+
+	public int getNumeroAscensor() {
+		return numeroAscensor;
+	}
 
 	public int getPisoAscensor() {
 		return pisoSal;
@@ -13,9 +24,6 @@ public class displayAscensor implements Observer {
 		this.pisoSal = pisoSal;
 	}
 
-	public displayAscensor(Ascensor s) {
-    	update (s.getPisoAscensor());
-    }
 
     @Override
     public void update(int piso) {
@@ -30,10 +38,10 @@ public class displayAscensor implements Observer {
         
     }
 
-	@Override
+    @Override
 	public void updateid(int id) {
 		// TODO Auto-generated method stub
-		
+		this.numeroAscensor = id;
 	}
 
 
