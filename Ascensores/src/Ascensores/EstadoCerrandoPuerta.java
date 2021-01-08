@@ -20,6 +20,8 @@ public class EstadoCerrandoPuerta implements Estado {
 			a.setEstado(new EstadoMovimiento());
 			a.setPisoAscensor(a.recorrerPisos(p));
 			a.setEstado(new EstadoAbriendoPuerta());
+			a.setEstado(new EstadoCerrandoPuerta());
+			a.setEstado(new EstadoParado());
 				
 		}			
 		

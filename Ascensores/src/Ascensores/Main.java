@@ -8,32 +8,38 @@ public class Main {
 		
 		pisoPlanta = 7;
 		
-		Ascensor A1 = new Ascensor();
-		Ascensor A2 = new Ascensor();
-		Ascensor A3 = new Ascensor();
+		Edificio edificio =Edificio.getInstance();
 		
-		Piso p0 = new Piso(0);
-		Piso p1 = new Piso(1);
-		Piso p2 = new Piso(2);
-		Piso p3 = new Piso(3);
-		Piso p4 = new Piso(4);
-		Piso p5 = new Piso(5);
-		Piso p6 = new Piso(6);
+		Ascensor ascensor1 = edificio.getAscensor(0);
 		
 		
-		displayAscensor d1 = new displayAscensor();
-		displayControl c1 = new displayControl();
-		A1.attachObserver(d1); //Le asignamos el observer
-		A1.attachObserver(c1);
 		
-		A1.requestAscensor(p6);		
-		A1.requestAscensor(p3);
+		Piso piso0 = edificio.getPiso(0);
+		Piso piso1 = edificio.getPiso(1);
+		Piso piso2 = edificio.getPiso(2);
+		Piso piso3 = edificio.getPiso(3);
+		Piso piso4 = edificio.getPiso(4);
+		Piso piso5 = edificio.getPiso(5);
+		Piso piso6 = edificio.getPiso(6);
+
+		
+		displayAscensor d1 = new displayAscensor(ascensor1);
+		displayControl c1 = new displayControl(ascensor1);
+		
+		
+		ascensor1.attachObserver(d1); //Le asignamos el observer
+		ascensor1.attachObserver(c1);
+		ascensor1.getEstado();
+		
+		System.out.println();
+		
+		
+		ascensor1.requestAscensor(piso6);		
+		ascensor1.requestAscensor(piso6);
 		
 		
 		/*
 		displayAscensor d2 = new displayAscensor();
-		
-		
 		A2.attachObserver(d2); //Le asignamos el observer
 		A2.requestAscensor(p1);		
 		A2.requestAscensor(p6);
@@ -42,12 +48,7 @@ public class Main {
 		displayAscensor d3 = new displayAscensor();
 		A3.attachObserver(d3); //Le asignamos el observer
 		A3.requestAscensor(p2);		
-		A3.requestAscensor(p5);*/
-		
-		
-		
-
-		
+		A3.requestAscensor(p5);*/		
 		
 
 	}

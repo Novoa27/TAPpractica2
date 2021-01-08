@@ -12,16 +12,14 @@ public class EstadoAbriendoPuerta implements Estado{
 
 	@Override
 	public void requestAscensor(Ascensor a, Piso p){
-		
-		
-		
-			
+
 		// TODO Auto-generated method stub
 		a.setEstado(new EstadoCerrandoPuerta());
 		a.setEstado(new EstadoMovimiento());
-		a.setPisoAscensor(a.recorrerPisos(p));
-		
-		a.setEstado(new EstadoAbriendoPuerta());	
+		a.setPisoAscensor(a.recorrerPisos(p));		
+		a.setEstado(new EstadoAbriendoPuerta());
+		a.setEstado(new EstadoCerrandoPuerta());
+		a.setEstado(new EstadoParado());
 				
 	}
 

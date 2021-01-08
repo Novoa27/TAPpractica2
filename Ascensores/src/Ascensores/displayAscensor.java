@@ -2,26 +2,34 @@ package Ascensores;
 
 public class displayAscensor implements Observer {
 
-	public void imprimirPiso(int piso) {
-		// TODO Auto-generated method stub
-		
-		System.out.println("Display Ascensor: Piso  " + piso);
-		
-	}
-	
+    String nameEstado; 
+    int pisoSal; 
+    
+    
+    public displayAscensor(Ascensor s) {
+    	update (s.getPisoAscensor());
+    }
 
-	@Override
-	public void update(int piso) {
-		this.imprimirPiso(piso);
-	}
+    public void imprimirPiso(int piso) {
+        // TODO Auto-generated method stub
+        this.pisoSal = piso; 
+        System.out.println("Display Ascensor: Piso  " + this.pisoSal);
+
+    }
 
 
-	@Override
-	public void updateEstado(String s) {
-		// TODO Auto-generated method stub
-		
-	}
 
+    @Override
+    public void update(int piso) {
+        this.imprimirPiso(piso);
+    }
+
+
+    @Override
+    public void updateEstado(String s) {
+        // TODO Auto-generated method stub
+        
+    }
 
 
 }

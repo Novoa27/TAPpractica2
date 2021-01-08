@@ -18,6 +18,8 @@ public class Ascensor {
 		this.pisoAscensor = 0;
 		this.current = new EstadoParado();
 		this.observers = new ArrayList<Observer>();
+		this.notifyObserversPiso();
+		this.notifyObserversEstado();
 		
 	}
 	
