@@ -2,9 +2,13 @@ package Ascensores;
 
 public class EstadoParado implements Estado {
 
+	String nameEstado ="Parado";
+	
 	@Override
 	public void requestAscensor(Ascensor a, Piso p){
 		// TODO Auto-generated method stub
+		
+		
 		
 		int pisoAscensor = a.getPisoAscensor();
 		
@@ -42,5 +46,14 @@ public class EstadoParado implements Estado {
 		System.out.println("*SONIDO ALARMA*");
 		
 	}
+	
+	@Override
+	public String getNameEstado() {
+		// TODO Auto-generated method stub
+		return nameEstado;
+	}
+
+
+
 
 }

@@ -17,7 +17,7 @@ public class displayAscensor implements Observer {
 
 
 	@Override
-	public void updateEstado(Estado s) {
+	public void updateEstado(String s) {
 		// TODO Auto-generated method stub
 		
 	}

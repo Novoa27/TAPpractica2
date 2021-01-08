@@ -9,7 +9,7 @@ public class displayControl implements Observer {
 		
 	}
 	
-	public void imprimirEstado(Estado s) {
+	public void imprimirEstado(String s) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Display Control: Estado " + s);
@@ -24,7 +24,7 @@ public class displayControl implements Observer {
 
 
 	@Override
-	public void updateEstado(Estado s) {
+	public void updateEstado(String s) {
 		// TODO Auto-generated method stub
 		this.imprimirEstado(s);
 		

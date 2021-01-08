@@ -107,7 +107,7 @@ public class Ascensor {
 			
 			//Hacer update de cada observer con la temperatura
 			for(Observer o : this.observers) {
-				o.updateEstado(this.current);
+				o.updateEstado(this.current.getNameEstado());
 			}
 		
 	}

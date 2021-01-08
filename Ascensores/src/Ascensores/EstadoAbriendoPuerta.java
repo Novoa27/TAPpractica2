@@ -1,9 +1,21 @@
 package Ascensores;
 
 public class EstadoAbriendoPuerta implements Estado{
+	
+	String nameEstado ="Abriendo puerta";
+	
+	public String getNameEstado() {
+		// TODO Auto-generated method stub
+		return nameEstado;
+		
+	}
 
 	@Override
 	public void requestAscensor(Ascensor a, Piso p){
+		
+		
+		
+			
 		// TODO Auto-generated method stub
 		a.setEstado(new EstadoCerrandoPuerta());
 		a.setEstado(new EstadoMovimiento());

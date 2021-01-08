@@ -6,5 +6,6 @@ public interface Estado {
 	void abrirPuerta(Ascensor a);
 	void cerrarPuerta(Ascensor a);
 	void activarAlarma (Ascensor a);
+	String getNameEstado();
 	
 }
