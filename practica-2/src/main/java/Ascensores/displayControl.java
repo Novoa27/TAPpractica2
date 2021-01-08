@@ -9,9 +9,7 @@ public class displayControl implements Observer {
     
     public displayControl(Ascensor s) {
     	update (s.getPisoAscensor());
-    	System.out.println("aaaa2");
-    	String estadoinicial = "Parado";
-    	updateEstado (estadoinicial);
+    	updateEstado (s.getNameEstado());
     	updateid(s.getIdAscensor());
     	
     }

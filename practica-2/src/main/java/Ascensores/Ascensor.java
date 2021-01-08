@@ -34,6 +34,10 @@ public class Ascensor {
 		return this.current;
 	}
 	
+	public String getNameEstado() {
+		return this.current.getNameEstado();
+	}
+	
 	public int getIdAscensor() {
 		return idAscensor;
 	}

@@ -71,7 +71,12 @@ public class AscensoresView extends Div {
 		display_ascensor_1.add(d1);
 		Grid<displayAscensor> grid_a2 = new Grid<>(displayAscensor.class);
         grid_a2.setItems(display_ascensor_1);
-        // 
+        
+        List<displayAscensor> display_ascensor_2 = new ArrayList<>();
+		display_ascensor_2.add(d2);
+		Grid<displayAscensor> grid_a3 = new Grid<>(displayAscensor.class);
+        grid_a3.setItems(display_ascensor_2);
+        
         
         
         Notification n_alarm = new Notification(
@@ -178,6 +183,55 @@ public class AscensoresView extends Div {
         alarmButton2.addClickListener(event -> {ascensor1.abrirPuerta();
 									n_alarm.open();});
         alarmButton2.setTabIndex(10);
+        
+    	//----------------------------------------------------------------------------------
+        //ascensor 3
+        
+        Button button03 = new Button("0");
+        button03.addClickListener(event -> {ascensor2.requestAscensor(piso0);
+        						grid_a3.getDataProvider().refreshAll();});
+        button03.setTabIndex(0);
+        Button button13 = new Button("1");
+        button13.addClickListener(event -> {ascensor2.requestAscensor(piso1);
+        						grid_a3.getDataProvider().refreshAll();});
+        button13.setTabIndex(1);
+        Button button23 = new Button("2");
+        button23.addClickListener(event -> {ascensor2.requestAscensor(piso2);
+								grid_a3.getDataProvider().refreshAll();});
+        button23.setTabIndex(2);
+        Button button33 = new Button("3");
+        button33.addClickListener(event -> {ascensor2.requestAscensor(piso3);
+								grid_a3.getDataProvider().refreshAll();});
+        button33.setTabIndex(3);
+        Button button43 = new Button("4");
+        button43.addClickListener(event -> {ascensor2.requestAscensor(piso4);
+								grid_a3.getDataProvider().refreshAll();});
+        button43.setTabIndex(4);
+        Button button53 = new Button("5");
+        button53.addClickListener(event -> {ascensor2.requestAscensor(piso5);
+								grid_a3.getDataProvider().refreshAll();});
+        button53.setTabIndex(52);
+        Button button63 = new Button("6");
+        button63.addClickListener(event -> {ascensor2.requestAscensor(piso6);
+								grid_a3.getDataProvider().refreshAll();});
+        button63.setTabIndex(6);
+        Button openButton3 = new Button("Open", new Icon(VaadinIcon.CARET_RIGHT));
+        openButton3.addClickListener(event -> {ascensor2.abrirPuerta();
+									n_abrir.open();});
+        openButton3.setTabIndex(8);
+        Button closeButton3 = new Button("Close", new Icon(VaadinIcon.CARET_LEFT));
+        closeButton3.addClickListener(event -> {ascensor2.cerrarPuerta(); 
+									n_cerrar.open();});
+        closeButton3.setTabIndex(9);
+        Button alarmButton3 = new Button("Alarma", new Icon(VaadinIcon.BELL_O));
+        alarmButton3.addClickListener(event -> {ascensor2.abrirPuerta();
+									n_alarm.open();});
+        alarmButton3.setTabIndex(10);		
+
+        
+        
+        
+        
                 
        
         
@@ -194,6 +248,13 @@ public class AscensoresView extends Div {
         layout21.addToSecondary(grid_a2);
         layout21.setPrimaryStyle("minWidth", "150px");
         layout21.setPrimaryStyle("maxWidth", "150px");
+        
+        layout3.add(button03,button13,button23,button33,button43,button53,button63,openButton3,closeButton3,alarmButton3);
+        layout31.addToPrimary(layout3);
+        layout31.addToSecondary(grid_a3);
+        layout31.setPrimaryStyle("minWidth", "150px");
+        layout31.setPrimaryStyle("maxWidth", "150px");
+        
         
         
         Tab tab1 = new Tab("Ascensor 1");

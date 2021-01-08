@@ -36,9 +36,7 @@ public class EstadoParado implements Estado {
 	public void abrirPuerta(Ascensor a) {
 		// TODO Auto-generated method stub
 		a.setEstado(new EstadoAbriendoPuerta());
-		System.out.println(a.getEstado());
-		a.setEstado(new EstadoCerrandoPuerta());
-
+		//a.setEstado(new EstadoCerrandoPuerta());
 		//a.setEstado(new EstadoParado());
 	}
 
