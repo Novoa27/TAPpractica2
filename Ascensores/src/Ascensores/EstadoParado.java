@@ -3,37 +3,26 @@ package Ascensores;
 public class EstadoParado implements Estado {
 
 	@Override
-	public void llamarDesdePlanta(Ascensor a, int pisoPlanta) throws InterruptedException {
+	public void requestAscensor(Ascensor a, Piso p){
 		// TODO Auto-generated method stub
 		
 		int pisoAscensor = a.getPisoAscensor();
 		
-		if (pisoPlanta == pisoAscensor) {
+		if (p.getnumPiso() == pisoAscensor) {
 			
 			a.setEstado(new EstadoAbriendoPuerta());
+			
+		}
+		else {
+			a.setEstado(new EstadoMovimiento());
+			a.setPisoAscensor(a.recorrerPisos(p));
+			a.setEstado(new EstadoAbriendoPuerta());
+				
 		}
 		
-		a.setPisoAscensor(a.recorrerPisos(pisoPlanta));
-		a.setEstado(new EstadoAbriendoPuerta());
-					
+				
 	}
 
-	@Override
-	public void moverDesdeAscensor(Ascensor a, int pisoPlanta) throws InterruptedException {
-		// TODO Auto-generated method stub
-		
-		int pisoAscensor = a.getPisoAscensor();
-		
-		if (pisoPlanta == pisoAscensor) {
-			
-			a.setEstado(new EstadoAbriendoPuerta());
-		}
-		
-		a.setPisoAscensor(a.recorrerPisos(pisoPlanta));
-		a.setEstado(new EstadoAbriendoPuerta());		
-		
-		
-	}
 
 	@Override
 	public void abrirPuerta(Ascensor a) {
@@ -45,6 +34,13 @@ public class EstadoParado implements Estado {
 	public void cerrarPuerta(Ascensor a) {
 		// TODO Auto-generated method stub
 				
+	}
+	
+	@Override
+	public void activarAlarma(Ascensor a) {
+		// TODO Auto-generated method stub
+		System.out.println("*SONIDO ALARMA*");
+		
 	}
 
 }

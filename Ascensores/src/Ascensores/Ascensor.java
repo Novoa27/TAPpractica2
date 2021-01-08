@@ -1,5 +1,6 @@
 package Ascensores;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,25 +10,31 @@ public class Ascensor {
 	private int pisoAscensor;
 	private Estado current;
 	
+	//Lista de observers
+	private ArrayList<Observer> observers;
+	
 	//Constructor de máquina por defecto
 	public Ascensor() {
 		this.pisoAscensor = 0;
 		this.current = new EstadoParado();
+		this.observers = new ArrayList<Observer>();
 		
 	}
 	
 	public void setEstado(Estado e) {
 		this.current = e;
+		notifyObserversEstado();
+	}
+	
+	public Estado getEstado () {
+		return this.current;
 	}
 	
 	
-	public void llamarDesdePlanta(int pisoPlanta) throws InterruptedException {
-		this.current.llamarDesdePlanta(this, pisoPlanta);
+	public void requestAscensor(Piso p) {
+		this.current.requestAscensor(this, p);
 	}
 	
-	public void moverDesdeAscensor(int pisoPlanta) throws InterruptedException {
-		this.current.moverDesdeAscensor(this, pisoPlanta);
-	}
 	
 	public void abrirPuerta() {
 		this.current.abrirPuerta(this);
@@ -46,28 +53,63 @@ public class Ascensor {
 	}
 	
 	
-	public int recorrerPisos (int pisoPlanta) throws InterruptedException {
+	public int recorrerPisos (Piso p){
 		
-	
-		if (pisoPlanta > this.pisoAscensor) {
-			while (this.pisoAscensor< pisoPlanta)
+		int pisoPlanta = p.getnumPiso();
+		
+		
+		
+		if (this.pisoAscensor < pisoPlanta ) {
+			while (this.pisoAscensor< pisoPlanta) {
 				
-				System.out.println(this.pisoAscensor);
-				this.pisoAscensor++;
-				java.util.concurrent.TimeUnit.SECONDS.sleep(2);
-			System.out.println(this.pisoAscensor);
+			    this.setPisoAscensor(this.pisoAscensor+1);
+			    this.notifyObserversPiso();
+			    
+			}			    
+		    p.activarAltavoz();
+		    
 			
 		}
-		else {
-			while (this.pisoAscensor> pisoPlanta)
+		else if (this.pisoAscensor > pisoPlanta){
+			while (this.pisoAscensor > pisoPlanta) {
 							
-				System.out.println(this.pisoAscensor);
-				this.pisoAscensor--;
-				java.util.concurrent.TimeUnit.SECONDS.sleep(2);
-			System.out.println(this.pisoAscensor);	
+				this.setPisoAscensor(this.pisoAscensor-1);
+				this.notifyObserversPiso();
+			}
+			
+			p.activarAltavoz();
 		}		
 		
 		return pisoAscensor;
+	}
+	
+	
+	//OBSERVER METHODS
+	
+	public void attachObserver(Observer o) {
+		this.observers.add(o);
+	}
+	
+	public void detachObserver(Observer o) {
+		this.observers.remove(o);
+	}
+	
+	public void notifyObserversPiso() {
+		
+		//Hacer update de cada observer con la temperatura
+		for(Observer o : this.observers) {
+			o.update(this.pisoAscensor);
+		}
+		
+	}
+		
+	public void notifyObserversEstado() {
+			
+			//Hacer update de cada observer con la temperatura
+			for(Observer o : this.observers) {
+				o.updateEstado(this.current);
+			}
+		
 	}
 	
 	
