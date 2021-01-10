@@ -1,16 +1,19 @@
-package Ascensores;
+package ascensores;
 
-public class displayControl implements Observer {
+public class DisplayControl implements Observer {
 
+	//Esta clase se emplea para obtener la informacion necesaria para mostrar en el display de control
+	
 	int numeroAscensor;
 	String nameEstado; 
-	int PisoAscensor;
+	int pisoAscensor;
 
     
-    public displayControl(Ascensor s) {
+    public DisplayControl(Ascensor s) {
     	update (s.getPisoAscensor());
     	updateEstado (s.getNameEstado());
     	updateid(s.getIdAscensor());
+    	
     	
     }
     
@@ -26,20 +29,20 @@ public class displayControl implements Observer {
 	}
 
 	public int getPisoAscensor() {
-		return PisoAscensor;
+		return pisoAscensor;
 	}
 
     @Override
     public void update(int piso) {
-    	this.PisoAscensor = piso; 
-        System.out.println("Display Control: Piso  " + this.PisoAscensor);
+    	this.pisoAscensor = piso; 
+        System.out.println("Display Control: Piso  " + this.pisoAscensor);
         
     }
 
 
     @Override
     public void updateEstado(String s) {
-        // TODO Auto-generated method stub
+        
         this.nameEstado = s; 
         System.out.println("Display Control: Estado " + this.nameEstado);
         setNameEstado(nameEstado);
@@ -47,7 +50,7 @@ public class displayControl implements Observer {
     }
 	@Override
 	public void updateid(int id) {
-		// TODO Auto-generated method stub
+		
 		this.numeroAscensor = id;
 	}
 	

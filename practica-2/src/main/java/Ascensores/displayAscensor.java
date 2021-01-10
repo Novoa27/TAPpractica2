@@ -1,14 +1,15 @@
-package Ascensores;
+package ascensores;
 
-public class displayAscensor implements Observer {
+public class DisplayAscensor implements Observer {
 
+	//Esta clase se emplea para obtener la informacion necesaria para mostrar en los ascensores y en los pisos
+	
     int pisoSal;
     int numeroAscensor;
     
-    public displayAscensor(Ascensor s) {
+    public DisplayAscensor(Ascensor s) {
     	update (s.getPisoAscensor());
     	updateid(s.getIdAscensor());
-    	
     }
     
 
@@ -34,13 +35,13 @@ public class displayAscensor implements Observer {
 
     @Override
     public void updateEstado(String s) {
-        // TODO Auto-generated method stub
+        // No nos interesa el estado para estas pantallas
         
     }
 
     @Override
 	public void updateid(int id) {
-		// TODO Auto-generated method stub
+
 		this.numeroAscensor = id;
 	}
 

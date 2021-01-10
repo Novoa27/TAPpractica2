@@ -4,20 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.application.views.main.MainView;
-import com.vaadin.flow.component.Text;	
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
-import Ascensores.Ascensor;
-import Ascensores.Edificio;
-import Ascensores.Observer;
-import Ascensores.Piso;
-import Ascensores.displayControl;
+import ascensores.Ascensor;
+import ascensores.Edificio;
+import ascensores.DisplayControl;
  
 @Route(value = "control", layout = MainView.class)
 @PageTitle("Control")
@@ -29,7 +25,7 @@ public class ControlView extends Div {
         
         VerticalLayout vl = new VerticalLayout();
         
-        List<displayControl> displayList = new ArrayList<>();
+        List<DisplayControl> displayList = new ArrayList<>();
         
         Edificio e = Edificio.getInstance();
         
@@ -37,9 +33,9 @@ public class ControlView extends Div {
         Ascensor ascensor1 = e.getAscensor(1);
         Ascensor ascensor2 = e.getAscensor(2);
                 
-        displayControl dc0 = new displayControl(ascensor0);
-        displayControl dc1 = new displayControl(ascensor1);
-        displayControl dc2 = new displayControl(ascensor2);
+        DisplayControl dc0 = new DisplayControl(ascensor0);
+        DisplayControl dc1 = new DisplayControl(ascensor1);
+        DisplayControl dc2 = new DisplayControl(ascensor2);
         
         displayList.add(dc0);
         displayList.add(dc1);
@@ -49,10 +45,8 @@ public class ControlView extends Div {
         ascensor1.attachObserver(dc1);
         ascensor2.attachObserver(dc2);
 
-        Grid<displayControl> grid = new Grid<>(displayControl.class);
-        
-        //grid.setColumns("Piso", "Estado");
-        
+        Grid<DisplayControl> grid = new Grid<>(DisplayControl.class);
+                
         grid.setItems(displayList);
         
         vl.add(grid);

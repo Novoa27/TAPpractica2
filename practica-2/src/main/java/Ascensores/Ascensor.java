@@ -1,24 +1,22 @@
-package Ascensores;
+package ascensores;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class Ascensor {
 	private int idAscensor;
 	private int pisoAscensor;
 	private Estado current;
-	private String nameEstado;
 	
 	//Lista de observers
 	private ArrayList<Observer> observers;
 	
-	//Constructor de m�quina por defecto
+	//Constructor de ascensor
+	
 	public Ascensor(int i) {
 		this.pisoAscensor = 0;
 		this.current = new EstadoParado();
-		this.observers = new ArrayList<Observer>();
+		this.observers = new ArrayList<>();
 		this.idAscensor = i;
 		this.notifyObserversPiso();
 		this.notifyObserversEstado();
@@ -34,6 +32,7 @@ public class Ascensor {
 		return this.current;
 	}
 	
+	//Obtenci�n del Estado en formato String y escrito correctamente
 	public String getNameEstado() {
 		return this.current.getNameEstado();
 	}
@@ -64,12 +63,11 @@ public class Ascensor {
 	}
 	
 	
+	//Esta funci�n es una simulaci�n de como el ascensor recorrer�a los pisos
 	public int recorrerPisos (Piso p){
 		
 		int pisoPlanta = p.getnumPiso();
-		
-		
-		
+				
 		if (this.pisoAscensor < pisoPlanta ) {
 			while (this.pisoAscensor< pisoPlanta) {
 				
@@ -78,7 +76,6 @@ public class Ascensor {
 			    
 			}			    
 		    p.activarAltavoz();
-		    
 			
 		}
 		else if (this.pisoAscensor > pisoPlanta){
@@ -95,7 +92,7 @@ public class Ascensor {
 	}
 	
 	
-	//OBSERVER METHODS
+	//Metodos del Observer
 	
 	public void attachObserver(Observer o) {
 		this.observers.add(o);
@@ -107,7 +104,7 @@ public class Ascensor {
 	
 	public void notifyObserversPiso() {
 		
-		//Hacer update de cada observer con la temperatura
+		//Hacer update cada vez que el ascensor cambie de piso
 		for(Observer o : this.observers) {
 			o.update(this.pisoAscensor);
 		}
@@ -116,7 +113,7 @@ public class Ascensor {
 		
 	public void notifyObserversEstado() {
 			
-			//Hacer update de cada observer con la temperatura
+			//Hacer update cada vez que el ascensor cambie de estado
 			for(Observer o : this.observers) {
 				o.updateEstado(this.current.getNameEstado());
 			}
@@ -125,7 +122,7 @@ public class Ascensor {
 	
 	public void notifyObserversId() {
 		
-		//Hacer update de cada observer con la temperatura
+		//Hacer update del id del piso
 		for(Observer o : this.observers) {
 			o.updateid(this.idAscensor);
 		}

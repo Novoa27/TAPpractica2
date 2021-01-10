@@ -1,17 +1,13 @@
-package Ascensores;
+package ascensores;
 
 public class EstadoParado implements Estado {
 
 	String nameEstado ="Parado";
 	
-	
-	
 	@Override
 	public void requestAscensor(Ascensor a, Piso p){
-		// TODO Auto-generated method stub
-		
-		
-		
+	
+		//Si el piso de la peticion es el mismo que el del ascensor, se abre la puerta. Si no, se procede a llegar hasta el piso.
 		int pisoAscensor = a.getPisoAscensor();
 		
 		if (p.getnumPiso() == pisoAscensor) {
@@ -26,40 +22,34 @@ public class EstadoParado implements Estado {
 			a.setEstado(new EstadoCerrandoPuerta());
 			a.setEstado(new EstadoParado());
 				
-		}
-		
-				
+		}				
 	}
 
 
 	@Override
 	public void abrirPuerta(Ascensor a) {
-		// TODO Auto-generated method stub
+		
 		a.setEstado(new EstadoAbriendoPuerta());
-		//a.setEstado(new EstadoCerrandoPuerta());
-		//a.setEstado(new EstadoParado());
+
 	}
 
 	@Override
 	public void cerrarPuerta(Ascensor a) {
-		// TODO Auto-generated method stub
+		// La puerta ya está cerrada
 				
 	}
 	
 	@Override
 	public void activarAlarma(Ascensor a) {
-		// TODO Auto-generated method stub
+	
 		System.out.println("*SONIDO ALARMA*");
 		
 	}
 	
 	@Override
 	public String getNameEstado() {
-		// TODO Auto-generated method stub
+		
 		return nameEstado;
 	}
-
-
-
 
 }

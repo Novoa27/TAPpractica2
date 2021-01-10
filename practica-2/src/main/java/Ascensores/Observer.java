@@ -1,4 +1,4 @@
-package Ascensores;
+package ascensores;
 
 public interface Observer {
 	

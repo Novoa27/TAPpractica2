@@ -19,8 +19,6 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.PWA;
-import com.vaadin.flow.theme.Theme;
-import com.example.application.views.main.MainView;
 import com.example.application.views.control.ControlView;
 import com.example.application.views.ascensores.AscensoresView;
 import com.example.application.views.pisos.PisosView;

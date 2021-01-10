@@ -1,4 +1,4 @@
-package Ascensores;
+package ascensores;
 
 public class EstadoMovimiento implements Estado {
 
@@ -7,33 +7,30 @@ public class EstadoMovimiento implements Estado {
 	
 	@Override
 	public void requestAscensor(Ascensor a, Piso p) {
-		// TODO Auto-generated method stub
+		//Pasamos directamente a los siguientes estados
 		
 	}
 
-
-
 	@Override
 	public void abrirPuerta(Ascensor a) {
-		// TODO Auto-generated method stub
+		//Pasamos directamente a los siguientes estados
 		
 	}
 
 	@Override
 	public void cerrarPuerta(Ascensor a) {
-		// TODO Auto-generated method stub
+		//Pasamos directamente a los siguientes estados
 		
 	}
 	
 	@Override
 	public void activarAlarma(Ascensor a) {
-		// TODO Auto-generated method stub
 		System.out.println("*SONIDO ALARMA*");
 		
 	}
 	@Override
 	public String getNameEstado() {
-		// TODO Auto-generated method stub
+		
 		return nameEstado;
 	}
 

@@ -1,4 +1,4 @@
-package Ascensores;
+package ascensores;
 
 import java.util.ArrayList;
 
@@ -6,17 +6,16 @@ import java.util.ArrayList;
 
 public class Edificio {
 	
+	//Se ha empleado un Singleton del edificio para que solo exista 1 edificio con sus 3 ascensores y sus 7 Plantas
+	
 	private static Edificio singleton;
 	private ArrayList<Ascensor> ascensores;
 	private ArrayList<Piso> pisos;
-	
-	private int x;
-	//private ArrayList<Coche> coches;
 
 	private Edificio() {
 		
-		ascensores = new ArrayList<Ascensor>();
-		pisos = new ArrayList<Piso>();
+		ascensores = new ArrayList<>();
+		pisos = new ArrayList<>();
 				
 		Ascensor a0 = new Ascensor(1);		
 		Ascensor a1 = new Ascensor(2);
@@ -33,6 +32,7 @@ public class Edificio {
 		Piso p4 = new Piso(4);
 		Piso p5 = new Piso(5);
 		Piso p6 = new Piso(6);
+		
 		this.pisos.add(p0);	
 		this.pisos.add(p1);	
 		this.pisos.add(p2);	
@@ -43,6 +43,7 @@ public class Edificio {
 		
 	}
 	
+	//Singleton
 	public static Edificio getInstance() {
 		if(singleton == null)
 			singleton = new Edificio();
@@ -57,11 +58,6 @@ public class Edificio {
 	public Piso getPiso(int i) {
 		return pisos.get(i);
 	}
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
 	
 
 }
