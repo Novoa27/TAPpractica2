@@ -13,7 +13,7 @@ public class EstadoCerrandoPuerta implements Estado {
 		if (p.getnumPiso() == pisoAscensor) {
 			
 			a.setEstado(new EstadoAbriendoPuerta());
-			 
+			
 		}
 		else {
 			a.setEstado(new EstadoMovimiento());
@@ -35,7 +35,7 @@ public class EstadoCerrandoPuerta implements Estado {
 	}
 
 	@Override
-	public void cerrarPuerta(Ascensor a) { 
+	public void cerrarPuerta(Ascensor a) {
 		// Mismo estado
 		
 	}

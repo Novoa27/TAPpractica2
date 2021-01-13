@@ -110,7 +110,7 @@ public class PisosView extends Div {
 		String minWidth ="minWidth";
 		String maxWidth ="maxWidth";
 		String pxx ="150px";
-		String botonera ="BotoneraP";
+		String botonera ="Botonera";
 		
 		//planta 0
 		Button button00 = new Button(ascensorName1);
